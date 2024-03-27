@@ -17,9 +17,9 @@ import java.util.Optional;
 public class MemberController {
     private final MemberService memberService;
 
-    @GetMapping("/member/{sq}")
+    @GetMapping("/member/{id}")
     public ResponseEntity findMember(@PathVariable("id") Long id){
-        Optional<Member> member = memberService.findMember(id);
+        Member member = memberService.findMember(id);
         return new ResponseEntity<>(member, HttpStatus.OK);
     }
 
@@ -31,7 +31,7 @@ public class MemberController {
     @PatchMapping("/member/patch/{id}")
     public ResponseEntity editMember(@PathVariable("id") Long id, @RequestBody MemberEdit memberEdit){
         memberService.updateMember(id, memberEdit);
-        Optional<Member> member = memberService.findMember(id);
+        Member member = memberService.findMember(id);
 
         return new ResponseEntity<>(member, HttpStatus.OK);
 

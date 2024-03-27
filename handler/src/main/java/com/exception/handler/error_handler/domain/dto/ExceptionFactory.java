@@ -1,4 +1,4 @@
-package com.exception.handler.error_handler.dto;
+package com.exception.handler.error_handler.domain.dto;
 
 import lombok.Getter;
 

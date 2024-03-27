@@ -9,10 +9,9 @@ spring :
     #jpa 설정
   jpa:
     hibernate:
-      ddl-auto: update #create : 테이블이 있으면 드랍하고 새로 생성하는 옵션
+      ddl-auto: create #create : 테이블이 있으면 드랍하고 새로 생성하는 옵션
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
         format_sql: true
         default_batch_fetch_size: 100
       #show_sql: true #얘도 하이버네이트의 sql을 볼 수 있는데 얘는 system.out.println으로 찍혀나옴

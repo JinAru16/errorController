@@ -1,6 +1,6 @@
 package com.exception.handler.main.service;
 
-import com.exception.handler.error_handler.dto.MemberNotFound;
+import com.exception.handler.error_handler.domain.dto.MemberNotFound;
 import com.exception.handler.main.domain.Entity.Member;
 import com.exception.handler.main.domain.request.MemberEdit;
 import com.exception.handler.main.domain.request.MemberRequest;
@@ -26,8 +26,8 @@ public class MemberService {
         member.memberEditor(memberEdit);
     }
 
-    public Optional<Member> findMember(Long id) {
-        return memberRepository.findById(id);
+    public Member findMember(Long id) {
+        return memberRepository.findById(id).orElseThrow(MemberNotFound::new);
     }
 
     public void deleteMember(Long id) {
