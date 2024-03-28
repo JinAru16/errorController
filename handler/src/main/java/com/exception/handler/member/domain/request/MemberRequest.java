@@ -1,4 +1,4 @@
-package com.exception.handler.main.domain.request;
+package com.exception.handler.member.domain.request;
 
 import lombok.Getter;
 

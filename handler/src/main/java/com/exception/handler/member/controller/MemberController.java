@@ -1,15 +1,13 @@
-package com.exception.handler.main.controller;
+package com.exception.handler.member.controller;
 
-import com.exception.handler.main.domain.Entity.Member;
-import com.exception.handler.main.domain.request.MemberEdit;
-import com.exception.handler.main.domain.request.MemberRequest;
-import com.exception.handler.main.service.MemberService;
+import com.exception.handler.member.domain.Entity.Member;
+import com.exception.handler.member.domain.request.MemberEdit;
+import com.exception.handler.member.domain.request.MemberRequest;
+import com.exception.handler.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor

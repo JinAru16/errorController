@@ -1,12 +1,11 @@
-package com.exception.handler.main.domain.Entity;
+package com.exception.handler.member.domain.Entity;
 
-import com.exception.handler.main.domain.request.MemberEdit;
-import com.exception.handler.main.domain.request.MemberRequest;
+import com.exception.handler.member.domain.request.MemberEdit;
+import com.exception.handler.member.domain.request.MemberRequest;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 @Entity
