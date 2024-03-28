@@ -2,7 +2,6 @@ package com.exception.handler.error_handler.controller;
 
 import com.exception.handler.error_handler.domain.dto.MemberNotFound;
 import com.exception.handler.error_handler.domain.response.ErrorResponse;
-import org.hibernate.engine.jdbc.spi.SqlExceptionHelper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -12,10 +11,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import java.sql.SQLException;
-
-@ControllerAdvice("com.exception.handler.main")
-public class ExceptionController {
+@ControllerAdvice("com.exception.handler.member")
+public class MemberExceptionController {
 
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -35,7 +32,7 @@ public class ExceptionController {
 
     @ResponseBody
     @ExceptionHandler(MemberNotFound.class)
-    public ResponseEntity<ErrorResponse> memberNotFount(MemberNotFound e){
+    public ResponseEntity<ErrorResponse> memberNotFound(MemberNotFound e){
       int statusCode = e.getStatusCode();
        ErrorResponse body = ErrorResponse.builder()
                .code(String.valueOf(statusCode))

@@ -23,4 +23,8 @@ public class NoticeService {
     public Notice getOneNotice(Long id) {
         return noticeRepository.findById(id).orElseThrow(NoticeNotFound::new);
     }
+
+    public void deleteNotice(Long id) {
+        noticeRepository.deleteById(id);
+    }
 }

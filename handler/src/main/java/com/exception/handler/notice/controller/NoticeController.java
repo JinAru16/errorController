@@ -6,6 +6,7 @@ import com.exception.handler.notice.domain.request.NoticeEdit;
 import com.exception.handler.notice.service.NoticeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,13 +15,13 @@ import org.springframework.web.bind.annotation.*;
 public class NoticeController {
     private final NoticeService noticeService;
 
-    @GetMapping("/notice/one/{id}")
+    @GetMapping("/notice/{id}")
     public ResponseEntity<?> oneNotice(@PathVariable("id") Long id){
         Notice oneNotice = noticeService.getOneNotice(id);
         return ResponseEntity.ok().body(oneNotice);
     }
     @PostMapping("/notice/add")
-    public ResponseEntity<?> allNotice(@RequestBody NoticeCreate noticeCreate){
+    public ResponseEntity<?> addNotice(@RequestBody @Validated NoticeCreate noticeCreate){
         Notice notice = noticeService.addNotice(noticeCreate);
         return ResponseEntity.ok().body(notice);
     }
@@ -29,6 +30,12 @@ public class NoticeController {
         Notice oneNotice = noticeService.getOneNotice(id);
         oneNotice.NoticeUpdate(noticeEdit);
         
+        return ResponseEntity.ok().body("");
+    }
+    @DeleteMapping("/notice/delete{id}")
+    public ResponseEntity<?> deleteNotice(@PathVariable("id") Long id){
+        noticeService.deleteNotice(id);
+
         return ResponseEntity.ok().body("");
     }
 

@@ -5,6 +5,10 @@ public class NoticeNotFound extends ExceptionFactory{
     public NoticeNotFound() {
         super(MESSAGE);
     }
+    public NoticeNotFound(String fieldName, String message){
+        super(MESSAGE);
+        addValidation(fieldName, message);
+    }
     @Override
     public int getStatusCode() {
         return 404;
