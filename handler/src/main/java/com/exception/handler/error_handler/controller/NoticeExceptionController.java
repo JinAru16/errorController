@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice("com.exception.handler.notice")
 public class NoticeExceptionController {
-
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)

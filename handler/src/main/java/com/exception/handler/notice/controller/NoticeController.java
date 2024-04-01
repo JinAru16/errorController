@@ -4,6 +4,7 @@ import com.exception.handler.notice.domain.entity.Notice;
 import com.exception.handler.notice.domain.request.NoticeCreate;
 import com.exception.handler.notice.domain.request.NoticeEdit;
 import com.exception.handler.notice.service.NoticeService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -21,7 +22,7 @@ public class NoticeController {
         return ResponseEntity.ok().body(oneNotice);
     }
     @PostMapping("/notice/add")
-    public ResponseEntity<?> addNotice(@RequestBody @Validated NoticeCreate noticeCreate){
+    public ResponseEntity<?> addNotice(@RequestBody @Valid NoticeCreate noticeCreate){
         Notice notice = noticeService.addNotice(noticeCreate);
         return ResponseEntity.ok().body(notice);
     }
